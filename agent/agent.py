@@ -59,7 +59,11 @@ def run(env: Environment):
     )
 
     if "SuccessValue" not in result.status:
-        env.add_reply(f"Сталась помилка: {json.dumps(result.status)}. Спробуйте знов і якщо помилка не вирішиться, зверніться до [Влада](https://t.me/frolvlad).")
+        json_status = json.dumps(result.status)
+        if "Account is already funded" in json_status:
+            env.add_reply("Цей акаунт вже отримав 1 NEAR. Якщо ви вважаєте, що це помилка, зверніться до [Влада](https://t.me/frolvlad).")
+        else:
+            env.add_reply(f"Сталась помилка: {json_status}. Спробуйте знов і якщо помилка не вирішиться, зверніться до [Влада](https://t.me/frolvlad).")
         return
     env.add_reply(f"[Є!](https://nearblocks.io/address/{target_account_id}?tab=receipts)\n\nУспіхів вам в навчанні!")
 
