@@ -38,7 +38,8 @@ def run(env: Environment):
         return
 
     env.add_reply("Дякую! Перевіряю токен...")
-    if hashlib.sha256(ucup_token.encode()).hexdigest() not in ucup_tokens.HASHED_TOKENS:
+    hashed_token = hashlib.sha256(ucup_token.encode()).hexdigest()
+    if hashed_token not in ucup_tokens.HASHED_TOKENS:
         env.add_reply("Токен невірний. Спробуйте ще раз.")
         return
 
@@ -52,6 +53,7 @@ def run(env: Environment):
             "fund",
             args={
                 "target_account_id": target_account_id,
+                "hashed_token": hashed_token,
             },
         )
     )
