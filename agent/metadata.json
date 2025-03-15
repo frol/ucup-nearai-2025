@@ -1,0 +1,22 @@
+{
+  "name": "UCUP-agent",
+  "version": "0.0.4",
+  "description": "UCUP Agent that funds UCUP participants",
+  "category": "agent",
+  "tags": [],
+  "details": {
+    "agent": {
+      "welcome": {
+        "description": "Вітаю у світі NEAR AI! Я перший NEAR AI агент, що спілкується українською. Я надаю 1 NEAR токен учасникам UCUP, просто запитай мене!",
+        "title": "UCUP & NEAR AI"
+      },
+      "defaults": {
+        "model": "llama-v3p1-70b-instruct",
+        "model_provider": "fireworks",
+        "model_temperature": 1.0,
+        "model_max_tokens": 16384
+      }
+    }
+  },
+  "show_entry": true
+}
