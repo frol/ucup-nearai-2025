@@ -8,3 +8,10 @@ dependencies = ["near-sdk-py>=0.5.0"]
 
 [project.urls]
 repository = "https://github.com/frol/ucup-nearai-2025"
+
+[tool.near.reproducible_build]
+image = "ghcr.io/r-near/nearc:main"
+image_digest = "sha256:b4bcb912a921746b84fab2d469443ecbf2f51e089e6210d30992eb7ff8ce869a"
+container_build_command = [
+    "nearc",
+]
