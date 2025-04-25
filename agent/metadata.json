@@ -1,13 +1,13 @@
 {
   "name": "UCUP-agent",
-  "version": "0.0.8",
+  "version": "0.0.15",
   "description": "UCUP Agent that funds UCUP participants",
   "category": "agent",
   "tags": [],
   "details": {
     "agent": {
       "welcome": {
-        "description": "Вітаю у світі NEAR AI! Я перший NEAR AI агент, що спілкується українською. Я надаю 1 NEAR токен учасникам UCUP, просто запитай мене!",
+        "description": "Вітаю у світі NEAR AI! Я перший NEAR AI агент, що спілкується українською. Я нагороджую переможців UCUP-2025 та тих хто пройшов сертифікацію. Просто запитай мене!",
         "title": "UCUP & NEAR AI"
       },
       "defaults": {
