@@ -49,7 +49,7 @@ def run(env: Environment):
     QUEST_ACCOUNT_PRIVATE_ACCESS_KEY = env.env_vars["QUEST_PRIVATE_ACCESS_KEY"]
 
     ucup_certificates = env.completion([PROMPT] + env.list_messages())
-    ucup_certificates = [cert for cert in ucup_certificates.split() if re.match(r"^(L0|L1|L2|L3|D1|D2|D3|T)-[0-9]{4}-[0-9]{5}-[0-9]{5}$", cert)]
+    ucup_certificates = [cert for cert in ucup_certificates.split() if re.match(r"^(L0|L1|L2|L3|D1|D2|D3|T)(-[0-9]{4,5}){3}$", cert)]
     if not ucup_certificates:
         env.add_reply(INSTRUCTIONS)
         return
@@ -70,12 +70,12 @@ def run(env: Environment):
             faucet_account.call(
                 QUEST_ACCOUNT_ID,
                 "fund",
-            args={
-                "target_account_id": target_account_id,
-                "hashed_token": hashed_cert,
-                "funding_amount": str(reward * 10**24),
-            },
-        )
+                args={
+                    "target_account_id": target_account_id,
+                    "hashed_token": hashed_cert,
+                    "funding_amount": str(reward * 10**24),
+                },
+            )
         )
 
         if "SuccessValue" not in result.status:
